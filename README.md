@@ -2,7 +2,7 @@
 
 **Power BI dashboard + association-rule mining to show which products drive orders, how basket size shapes the department mix, and what to cross-sell.**
 
-![Homepage](images/01_homepage.png)
+![Homepage](Instacart-BasketAnalysis/images/01_homepage.png)
 
 
 ---
@@ -42,12 +42,12 @@ Instacart connects customers with local stores for same-day delivery or pickup. 
 **Source tables:** `orders`, `order_products` (prior and train), `products`, `aisles`, `departments`
 **Power BI model tables:** `RawData`, `OrdersProductsFull`, `BasketSizes`, `departments`, `Top3ProductsByDept`
 
-![Data model schema](images/02_data_model.png)
+![Data model schema](Instacart-BasketAnalysis/images/02_data_model.png)
 <!-- IMAGE 02: Schema / ERD (the Schema.png embedded in the "Data Set and Model" page) -->
 
 **What this shows:** `orders` links to line items through `order_id`; `products` links to `aisles` and `departments`. That chain lets any order be sliced by department, aisle, day and hour.
 
-![Data overview](images/03_data_overview.png)
+![Data overview](Instacart-BasketAnalysis/images/03_data_overview.png)
 <!-- IMAGE 03: "Data Set and Model" page, top-level view of the data (raw data preview table + summary counts for orders, customers, products, departments) -->
 
 ---
@@ -56,28 +56,28 @@ Instacart connects customers with local stores for same-day delivery or pickup. 
 
 ### 1. Dashboard (overview)
 
-![Dashboard](images/04_dashboard.png)
+![Dashboard](Instacart-BasketAnalysis/images/04_dashboard.png)
 <!-- IMAGE 04: "Dashboard" page. Orders by day of week, basket size distribution, basket-size bucket by department, with slicers -->
 
 **Impact:** Single view of order volume by weekday and basket size. Slicers (department, basket-size bucket, day of week) let stakeholders isolate any segment.
 
 ### 2. Basket Analysis
 
-![Basket Analysis](images/05_basket_analysis.png)
+![Basket Analysis](Instacart-BasketAnalysis/images/05_basket_analysis.png)
 <!-- IMAGE 05: "Basket Analysis" page. Orders by basket size, % of orders per department by basket bucket -->
 
 **Impact:** Shows how department mix shifts as baskets grow. This is the basis for targeting **upsizing** in small baskets and reinforcing **planned-trip** combos in large ones.
 
 ### 3. Department Segmentation
 
-![Department Segmentation](images/06_department_segmentation.png)
+![Department Segmentation](Instacart-BasketAnalysis/images/06_department_segmentation.png)
 <!-- IMAGE 06: "Department Segmentation" page. Top 3 products per department + department share by basket bucket -->
 
 **Impact:** Surfaces the top 3 products in each department, so inventory and promotion priorities are set at product level, not just department level.
 
 ### 4. Temporal Patterns
 
-![Temporal Patterns](images/07_temporal_patterns.png)
+![Temporal Patterns](Instacart-BasketAnalysis/images/07_temporal_patterns.png)
 <!-- IMAGE 07: "Temporal Patterns" page. Orders by day of week, by hour of day, department by hour -->
 
 **Impact:** Identifies when customers order and what they buy at each hour. Produce and snacks dominate the peak window, which is when to push those offers.
@@ -92,14 +92,14 @@ Association-rule mining (support and **lift**) was used to find products that ar
 
 ### Overall: high support + high lift
 
-![Top rules overall](images/08_rules_overall.png)
+![Top rules overall](Instacart-BasketAnalysis/images/08_rules_overall.png)
 <!-- IMAGE 08: "Machine Learning" page, left chart (High Support + High Lift Rules) -->
 
 **Impact:** Bananas ↔ Avocado (lift ≈ 2.6) and Strawberries ↔ Banana (lift ≈ 1.6) are common *and* meaningful pairings, making them safe candidates for recommendation slots.
 
 ### By basket size
 
-![Rules by basket size](images/09_rules_basket_size.png)
+![Rules by basket size](Instacart-BasketAnalysis/images/09_rules_basket_size.png)
 <!-- IMAGE 09: "Machine Learning" page, right chart (Top 5 Rules - Small Baskets / Large Baskets) -->
 
 **Impact:**
@@ -108,7 +108,7 @@ Association-rule mining (support and **lift**) was used to find products that ar
 
 ### By department
 
-![Rules by department](images/10_rules_department.png)
+![Rules by department](Instacart-BasketAnalysis/images/10_rules_department.png)
 <!-- IMAGE 10: "Departmental Rules" page (Produce, Beverages, Frozen rule charts, side by side or as a 3-image strip) -->
 
 | Department | Strongest pairing | Approx. lift | Impact |
@@ -164,4 +164,4 @@ Association-rule mining (support and **lift**) was used to find products that ar
 
 ## Author
 
-**[Mathew Maranan]**
+**[Mathew Maranan, Jacob Fernandez, Matthew Competente, Jorge Cabinian Jr.] **
